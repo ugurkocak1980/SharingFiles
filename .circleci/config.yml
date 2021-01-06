@@ -8,7 +8,7 @@ jobs:
     steps:
       - run: 
           command: |
-          echo "hello world" > output.txt
+            echo "hello world" > output.txt
  
 workflows:
     print_echo:
