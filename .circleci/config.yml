@@ -2,12 +2,8 @@ version: 2.1
 commands:
   print_pipeline_id:
     description: "command to print workflow id"
-    parameters:
-      id:
-        type: string
-        default: $CIRCLE_WORKFLOW_ID
     steps:
-      - run: echo << parameters.id>>
+      - run: echo ${CIRCLE_WORKFLOW_ID}
 
 jobs:
   save_hello_world_output:
