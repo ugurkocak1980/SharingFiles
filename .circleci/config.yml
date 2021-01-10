@@ -34,7 +34,9 @@ jobs:
     docker: 
       - image: circleci/node:13.8.0
     steps:
-      - run: return 1
+      - run:
+          command:
+            exit 1
       - run: 
           name: print when failed
           when: on_fail
