@@ -1,41 +1,44 @@
 version: 2.1
-commands:
-  print_pipeline_id:
-    description: "command to print workflow id"
-    steps:
-      - run: echo ${CIRCLE_WORKFLOW_ID}
+#
+# commands:
+#   print_pipeline_id:
+#     description: "command to print workflow id"
+#     steps:
+#       - run: echo ${CIRCLE_WORKFLOW_ID}
 
-jobs:
-  save_hello_world_output:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo "hello world" > ~/output.txt
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - output.txt
+# jobs:
+#   save_hello_world_output:
+#     docker:
+#       - image: circleci/node:13.8.0
+#     steps:
+#       - run: echo "hello world" > ~/output.txt
+#       - persist_to_workspace:
+#           root: ~/
+#           paths:
+#             - output.txt
 
-  print_output_file:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: cat ~/output.txt
+#   print_output_file:
+#     docker:
+#       - image: circleci/node:13.8.0
+#     steps:
+#       - attach_workspace:
+#           at: ~/
+#       - run: cat ~/output.txt
 
-  print_workflowId:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - print_pipeline_id 
+#   print_workflowId:
+#     docker:
+#       - image: circleci/node:13.8.0
+#     steps:
+#       - print_pipeline_id 
+
+      #
 
   my_job:
     docker: 
       - image: circleci/node:13.8.0
     steps:
       - run:
-          command: return 1
+          command: exit 1
       - when:
           condition: on_fail
           steps:
