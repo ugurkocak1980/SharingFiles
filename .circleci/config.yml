@@ -35,11 +35,11 @@ jobs:
     steps:
       - run:
           command: exit 1
-      - when:
-          condition: on_fail
-          steps:
-            - run: echo "Hello Error!"
-
+      - run:
+          name: Failed Job
+          command:  |
+            echo "Hello Error!"
+          when: on_fail
 
 workflows:
   my_workflow:
