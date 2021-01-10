@@ -43,10 +43,10 @@ jobs:
 
 workflows:
   my_workflow:
-    # jobs:
+    jobs:
     #   - save_hello_world_output
     #   - print_output_file:
     #       requires:
     #         - save_hello_world_output
     #   - print_workflowId
-      - my_job
+    - my_job
