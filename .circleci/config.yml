@@ -1,5 +1,4 @@
 version: 2.1
-#
 # commands:
 #   print_pipeline_id:
 #     description: "command to print workflow id"
@@ -29,9 +28,7 @@ version: 2.1
 #     docker:
 #       - image: circleci/node:13.8.0
 #     steps:
-#       - print_pipeline_id 
-
-      #
+#       - print_pipeline_id
 
   my_job:
     docker: 
