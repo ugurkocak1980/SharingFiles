@@ -30,6 +30,17 @@ jobs:
     steps:
       - print_pipeline_id 
 
+  job_with_fail:
+    docker: 
+      - image: circleci/node:13.8.0
+    steps:
+      - run: return 1
+      - run: 
+          name: print when failed
+          when: on_fail
+          command: echo "Hello World"
+
+
 workflows:
   my_workflow:
     jobs:
@@ -38,3 +49,4 @@ workflows:
           requires:
             - save_hello_world_output
       - print_workflowId
+      - job_with_fail
