@@ -34,14 +34,10 @@ jobs:
     docker: 
       - image: circleci/node:13.8.0
     steps:
-      - run:
-          command:
-            echo "I will exit fail status"
-            exit 1
+      - run: return 1
       - run: 
           name: print when failed          
-          command: |
-            echo "Hello World"
+          command: echo "Hello Error!"
           when: on_fail
 
 
