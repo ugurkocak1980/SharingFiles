@@ -35,14 +35,11 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run:
-          command: |
-            echo "I will exit fail status"
-            exit 1
-      - run: 
-          name: print when failed          
-          command: | 
-            echo "Hello World"
-          when: on_fail
+          command: return 1
+      - when:
+          condition: on_fail
+          steps:
+            - run: echo "Hello Error!"
 
 
 workflows:
