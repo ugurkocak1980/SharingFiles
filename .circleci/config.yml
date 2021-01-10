@@ -36,11 +36,13 @@ jobs:
     steps:
       - run:
           command:
+            echo "I will exit fail status"
             exit 1
       - run: 
-          name: print when failed
+          name: print when failed          
+          command: |
+            echo "Hello World"
           when: on_fail
-          command: echo "Hello World"
 
 
 workflows:
